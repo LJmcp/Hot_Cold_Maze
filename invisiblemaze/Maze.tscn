@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dm0wpoa4upbig"]
 
-[ext_resource type="Script" uid="uid://jd6gij5twbqv" path="res://character_body_3d.gd" id="1_bt0ne"]
+[ext_resource type="PackedScene" uid="uid://deb0yo6vprjnb" path="res://player.tscn" id="1_bt0ne"]
+[ext_resource type="PackedScene" uid="uid://ck00kqtev6wr7" path="res://Models/maze.blend" id="1_vg3ne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a4hq5"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -15,10 +16,8 @@ sky = SubResource("Sky_bt0ne")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a4hq5"]
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_a4hq5"]
-size = Vector2(20, 20)
+size = Vector2(60, 40)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bt0ne"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -32,20 +31,15 @@ environment = SubResource("Environment_vg3ne")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14389, 0)
-script = ExtResource("1_bt0ne")
+[node name="maze" parent="." instance=ExtResource("1_vg3ne")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_a4hq5")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.402347, -0.393195)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a4hq5")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bt0ne")
+
+[node name="player" parent="." instance=ExtResource("1_bt0ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0.842555, -6.34267)

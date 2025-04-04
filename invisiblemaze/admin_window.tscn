@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://pll5mqvkemtn"]
+
+[ext_resource type="Script" uid="uid://cuwbt5cc0qt40" path="res://adminWindow.gd" id="1_uueyd"]
+
+[node name="adminWindow" type="Window"]
+initial_position = 3
+current_screen = 0
+always_on_top = true
+script = ExtResource("1_uueyd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0254442, 0.999676, 0, -0.999676, -0.0254442, 0, 46.7033, 0)

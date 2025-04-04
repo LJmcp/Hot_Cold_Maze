@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm0wpoa4upbig"]
+[gd_scene load_steps=9 format=3 uid="uid://dm0wpoa4upbig"]
 
-[ext_resource type="PackedScene" uid="uid://deb0yo6vprjnb" path="res://player.tscn" id="1_bt0ne"]
+[ext_resource type="PackedScene" uid="uid://deb0yo6vprjnb" path="res://player/player.tscn" id="1_bt0ne"]
+[ext_resource type="PackedScene" uid="uid://pll5mqvkemtn" path="res://admin_window.tscn" id="1_byshg"]
 [ext_resource type="PackedScene" uid="uid://ck00kqtev6wr7" path="res://Models/maze.blend" id="1_vg3ne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a4hq5"]
@@ -28,8 +29,11 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 environment = SubResource("Environment_vg3ne")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="adminWindow" parent="." instance=ExtResource("1_byshg")]
+size = Vector2i(576, 324)
 
 [node name="maze" parent="." instance=ExtResource("1_vg3ne")]
 
@@ -42,4 +46,4 @@ mesh = SubResource("PlaneMesh_a4hq5")
 shape = SubResource("ConcavePolygonShape3D_bt0ne")
 
 [node name="player" parent="." instance=ExtResource("1_bt0ne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0.842555, -6.34267)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29, 0.842555, -6.34267)

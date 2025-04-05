@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtuor46rope2l"]
+
+[ext_resource type="Script" uid="uid://bauwlocrdnj2m" path="res://Scripts/Monster.cs" id="1_d2ygd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khn7o"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
+
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent")]
+script = ExtResource("1_d2ygd")
+navAgent = NodePath("NavigationAgent3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_khn7o")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_khn7o")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

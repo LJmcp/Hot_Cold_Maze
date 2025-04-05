@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv7ernvp8p53j"
+path="res://.godot/imported/Aggro_roar.mp3-a89a2c89d69d4d68c73c5585334cd7f6.mp3str"
+
+[deps]
+
+source_file="res://SFX/Ice Golem sounds/Aggro_roar.mp3"
+dest_files=["res://.godot/imported/Aggro_roar.mp3-a89a2c89d69d4d68c73c5585334cd7f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

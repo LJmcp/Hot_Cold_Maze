@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dulm8bc0rk02l"]
+
+[ext_resource type="PackedScene" uid="uid://defbsle5vrbdh" path="res://Models/corridoor/corridor.blend" id="1_qg34a"]
+
+[node name="corridor" instance=ExtResource("1_qg34a")]
+
+[node name="Corridoor" parent="." index="0"]
+layers = 4

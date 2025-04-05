@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tn24kfi63pxh"
+path="res://.godot/imported/running_footsteps.mp3-bf614e6043532b3de3bf10911076c002.mp3str"
+
+[deps]
+
+source_file="res://SFX/Player sounds/running_footsteps.mp3"
+dest_files=["res://.godot/imported/running_footsteps.mp3-bf614e6043532b3de3bf10911076c002.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

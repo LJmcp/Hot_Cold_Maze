@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt8vwjhv3vfg1"
+path="res://.godot/imported/Ice_crystals_forming.mp3-3d61d9771f1546e3a8b97a89920adfde.mp3str"
+
+[deps]
+
+source_file="res://SFX/Ice Golem sounds/Ice_crystals_forming.mp3"
+dest_files=["res://.godot/imported/Ice_crystals_forming.mp3-3d61d9771f1546e3a8b97a89920adfde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

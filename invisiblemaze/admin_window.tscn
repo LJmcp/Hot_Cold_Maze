@@ -8,5 +8,8 @@ current_screen = 0
 always_on_top = true
 script = ExtResource("1_uueyd")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0254442, 0.999676, 0, -0.999676, -0.0254442, 0, 46.7033, 0)
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 188.459, 0)
+cull_mask = 1048571
+projection = 1
+size = 52.095

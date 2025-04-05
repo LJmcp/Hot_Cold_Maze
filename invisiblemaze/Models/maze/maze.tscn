@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6voxxqm4xita"]
+
+[ext_resource type="PackedScene" uid="uid://ck00kqtev6wr7" path="res://Models/maze/maze.blend" id="1_v7u1s"]
+
+[node name="maze" instance=ExtResource("1_v7u1s")]
+
+[node name="Maze" parent="." index="0"]
+layers = 2

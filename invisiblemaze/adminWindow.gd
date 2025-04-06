@@ -6,6 +6,6 @@ func _ready():
 	#get_viewport().set_embedding_subwindows(false)
 	var d = mazeview.instantiate()
 	#d.add_visible = true
-	#d.position = Vector2(800,800)
+	#d.position = Vector2(1280,720)
 	#d.title = "Maze view"
-	#d.size = Vector2(600,400)
+	#d.size = Vector2(1280,720)

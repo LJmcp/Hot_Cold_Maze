@@ -44,7 +44,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="adminWindow" parent="." instance=ExtResource("1_byshg")]
-size = Vector2i(576, 324)
+size = Vector2i(1280, 720)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0394063, -0.0177374, -0.0171514)

@@ -9,6 +9,9 @@ extends CharacterBody3D
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 ## Camera Movement
 func _unhandled_input(event: InputEvent) -> void: 
 	## Checks for button inputs and hides the mouse if so
@@ -16,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	## Checks for esc key and shows the mouse 
-	elif event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	## Checks for mouse is moving
@@ -52,5 +55,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	## When colliding with the monster
 	if body.name == "Monster":
-		print("YOU GOT CAUGHT")
+		## Change scene to end screen
+		get_tree().change_scene_to_file("res://end.tscn")

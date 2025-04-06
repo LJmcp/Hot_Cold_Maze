@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm0wpoa4upbig"]
+[gd_scene load_steps=12 format=3 uid="uid://dm0wpoa4upbig"]
 
 [ext_resource type="PackedScene" uid="uid://deb0yo6vprjnb" path="res://player/player.tscn" id="1_bt0ne"]
 [ext_resource type="PackedScene" uid="uid://pll5mqvkemtn" path="res://admin_window.tscn" id="1_byshg"]
@@ -31,9 +31,6 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_qrwu0")
 size = Vector2(63, 40)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bt0ne"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -54,16 +51,12 @@ navigation_layers = 3
 [node name="corridor" parent="NavigationRegion3D" instance=ExtResource("2_qrwu0")]
 
 [node name="maze" parent="NavigationRegion3D" instance=ExtResource("3_qrwu0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00117302, 0, -0.0079875)
 
 [node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0394063, 0.0177374, 0.0171514)
 mesh = SubResource("PlaneMesh_a4hq5")
 skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_bt0ne")
 
 [node name="player" parent="NavigationRegion3D" instance=ExtResource("1_bt0ne")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.0394, 0.860292, -6.32552)

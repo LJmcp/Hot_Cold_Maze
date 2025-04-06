@@ -14,7 +14,12 @@ script = ExtResource("1_4flbx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_onrkg")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MonsterTrigger" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_onrkg")
 
 [node name="Neck" type="Node3D" parent="."]
@@ -27,3 +32,5 @@ cull_mask = 1048573
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.04427, 0)
 layers = 2
 texture = ExtResource("2_rkbax")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

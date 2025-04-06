@@ -12,7 +12,7 @@ script = ExtResource("1_d2ygd")
 navAgent = NodePath("NavigationAgent3D")
 _PositionTimer = NodePath("ChangeTargetTimer")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Monster" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_khn7o")
 metadata/_edit_group_ = true
 

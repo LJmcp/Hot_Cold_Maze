@@ -38,7 +38,6 @@ public partial class Monster : CharacterBody3D
 	
 	private void OnPositionTimeout()
 	{
-		GD.Print("TIMEOUT");
 		float randomX = (float)GD.RandRange(searchBoundsMinX, searchBoundsMaxX);
 			float randomZ = (float)GD.RandRange(searchBoundsMinZ, searchBoundsMaxZ);
 			searchTarget = new Vector3(randomX, GlobalTransform.Origin.Y, randomZ);

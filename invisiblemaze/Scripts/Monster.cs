@@ -64,19 +64,38 @@ public partial class Monster : CharacterBody3D
 		_aiController.EvaluateTree();
 	}
 
-	public override void _PhysicsProcess(double delta)
+[Export] public Node3D rotatingVisual; // Drag in the mesh or node to rotate
+
+public override void _PhysicsProcess(double delta)
+{
+	if (navAgent.IsNavigationFinished())
+		return;
+
+	Vector3 nextPathPos = navAgent.GetNextPathPosition();
+	Vector3 direction = (nextPathPos - GlobalTransform.Origin).Normalized();
+	Vector3 velocity = direction * SPEED;
+
+	navAgent.Velocity = velocity;
+	Velocity = velocity;
+	MoveAndSlide();
+
+	if (velocity.LengthSquared() > 0.01f)
 	{
-		if (navAgent.IsNavigationFinished())
-			return;
+		float angle = Mathf.Atan2(velocity.X, velocity.Z);
 
-		Vector3 nextPathPos = navAgent.GetNextPathPosition();
-		Vector3 direction = (nextPathPos - GlobalTransform.Origin).Normalized();
-		Vector3 velocity = direction * SPEED;
+		// Apply rotation only to the visual object
+		if (rotatingVisual != null)
+{
+	float currentY = rotatingVisual.Rotation.Y;
+	float smoothY = Mathf.LerpAngle(currentY, angle, (float)delta * 5);
+	rotatingVisual.Rotation = new Vector3(0, smoothY, 0);
+}
 
-		navAgent.Velocity = velocity;
-		Velocity = velocity;
-		MoveAndSlide();
 	}
+}
+
+
+
 
 	public override void _Input(InputEvent @event)
 	{

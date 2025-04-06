@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bt1jhx12kkvb4" path="res://Models/monster/TEST/Improved_MonsterBASIC.blend" id="3_ch8ds"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khn7o"]
-radius = 0.442937
+radius = 0.405498
 height = 2.08258
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
@@ -14,6 +14,7 @@ height = 2.08258
 script = ExtResource("1_d2ygd")
 navAgent = NodePath("NavigationAgent3D")
 _PositionTimer = NodePath("ChangeTargetTimer")
+SPEED = 4.0
 
 [node name="Monster" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_khn7o")
@@ -28,7 +29,7 @@ mesh = SubResource("CapsuleMesh_khn7o")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 
 [node name="ChangeTargetTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525443, 0)
@@ -36,13 +37,12 @@ stream = ExtResource("2_x8qak")
 autoplay = true
 
 [node name="Improved_MonsterBASIC" parent="." instance=ExtResource("3_ch8ds")]
-transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, -1, 0)
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, -1.07454, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.0314108, 0, 0.999507, 0, 1, 0, -0.999507, 0, -0.0314108, -0.651668, 0.565878, 0.0464935)
-light_color = Color(0.835284, 0.414935, 0.353948, 1)
-light_energy = 12.0
-spot_range = 3.37239
-spot_angle = 16.0242
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.995621, 0.0881837, 0.0310267, -0.0934828, 0.939185, 0.330444, 0, -0.331898, 0.943315, -0.78393, 0.577734, 0.0382588)
+light_color = Color(0.666259, 0.297835, 0.258931, 1)
+light_size = 0.6
+light_specular = 1.0
 
 [connection signal="timeout" from="ChangeTargetTimer" to="." method="OnPositionTimeout"]

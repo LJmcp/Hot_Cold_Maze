@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm0wpoa4upbig"]
+[gd_scene load_steps=12 format=3 uid="uid://dm0wpoa4upbig"]
 
 [ext_resource type="PackedScene" uid="uid://deb0yo6vprjnb" path="res://player/player.tscn" id="1_bt0ne"]
 [ext_resource type="PackedScene" uid="uid://pll5mqvkemtn" path="res://admin_window.tscn" id="1_byshg"]
 [ext_resource type="PackedScene" uid="uid://dulm8bc0rk02l" path="res://Models/corridoor/corridor.tscn" id="2_qrwu0"]
 [ext_resource type="PackedScene" uid="uid://6voxxqm4xita" path="res://Models/maze/maze.tscn" id="3_qrwu0"]
 [ext_resource type="PackedScene" uid="uid://dtuor46rope2l" path="res://Prefabs/Monster.tscn" id="4_m0p1e"]
-[ext_resource type="PackedScene" uid="uid://dsbaat83we8mk" path="res://Models/monster/Improved_Monstercomplex.blend" id="6_0ma3q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a4hq5"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -50,7 +49,6 @@ navigation_mesh = SubResource("NavigationMesh_m0p1e")
 navigation_layers = 3
 
 [node name="corridor" parent="NavigationRegion3D" instance=ExtResource("2_qrwu0")]
-visible = false
 
 [node name="maze" parent="NavigationRegion3D" instance=ExtResource("3_qrwu0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00117302, 0, -0.0079875)
@@ -66,6 +64,3 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.03
 [node name="Monster" parent="NavigationRegion3D" node_paths=PackedStringArray("targetPlayer") instance=ExtResource("4_m0p1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0707, 1.05065, 5.60235)
 targetPlayer = NodePath("../player")
-
-[node name="Improved_Monstercomplex" parent="." instance=ExtResource("6_0ma3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95469, 18.4859, 7.73)

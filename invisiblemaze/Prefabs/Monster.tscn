@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtuor46rope2l"]
+[gd_scene load_steps=6 format=3 uid="uid://dtuor46rope2l"]
 
 [ext_resource type="Script" uid="uid://bauwlocrdnj2m" path="res://Scripts/Monster.cs" id="1_d2ygd"]
 [ext_resource type="AudioStream" uid="uid://capo2coxxgpim" path="res://SFX/Ice Golem sounds/Moving - footsteps, grinding, ice.wav" id="2_x8qak"]
+[ext_resource type="PackedScene" uid="uid://bt1jhx12kkvb4" path="res://Models/monster/TEST/Improved_MonsterBASIC.blend" id="3_ch8ds"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khn7o"]
+radius = 0.442937
+height = 2.08258
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
 
@@ -17,6 +20,7 @@ shape = SubResource("CapsuleShape3D_khn7o")
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_khn7o")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -30,5 +34,15 @@ wait_time = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525443, 0)
 stream = ExtResource("2_x8qak")
 autoplay = true
+
+[node name="Improved_MonsterBASIC" parent="." instance=ExtResource("3_ch8ds")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, -1, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0314108, 0, 0.999507, 0, 1, 0, -0.999507, 0, -0.0314108, -0.651668, 0.565878, 0.0464935)
+light_color = Color(0.835284, 0.414935, 0.353948, 1)
+light_energy = 12.0
+spot_range = 3.37239
+spot_angle = 16.0242
 
 [connection signal="timeout" from="ChangeTargetTimer" to="." method="OnPositionTimeout"]

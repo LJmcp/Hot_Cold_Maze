@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 ## Defines constants for movement
-const SPEED = 5.0
+@export var SPEED = 5.0
 #const JUMP_VELOCITY = 4.5
 
 ## allows the camera to move
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	#	velocity.y = JUMP_VELOCITY
 
 	## Get the input direction and handle the movement/deceleration.
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
+	var input_dir := Input.get_vector("back", "forward", "left", "right")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED

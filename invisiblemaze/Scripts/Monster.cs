@@ -24,13 +24,27 @@ public partial class Monster : CharacterBody3D
 	private float searchBoundsMaxZ = 10f;
 
 	private Vector3 searchTarget = Vector3.Zero;
+	private Vector3 oldSearchTarget = Vector3.Zero;
 	private bool hasSearchTarget = false;
 
 	private AIController _aiController;
+	[Export]
+	private Timer _PositionTimer;
 
-	private const float SPEED = 9f; // Adjusted for realistic 3D movement
+	[Export]
+	private float SPEED = 9f; // Adjusted for realistic 3D movement
 
 	private RayCast3D raycast;
+	
+	private void OnPositionTimeout()
+	{
+		GD.Print("TIMEOUT");
+		float randomX = (float)GD.RandRange(searchBoundsMinX, searchBoundsMaxX);
+			float randomZ = (float)GD.RandRange(searchBoundsMinZ, searchBoundsMaxZ);
+			searchTarget = new Vector3(randomX, GlobalTransform.Origin.Y, randomZ);
+			hasSearchTarget = true;
+			SetTarget(searchTarget);
+	}
 
 	public override void _Ready()
 	{
@@ -39,10 +53,15 @@ public partial class Monster : CharacterBody3D
 
 		_aiController = new AIController();
 		_aiController.BehaviourTree = CreateHuntingNode();
+		_PositionTimer.Start();
 	}
 
 	public override void _Process(double delta)
 	{
+		if (searchTarget  == oldSearchTarget)
+		{
+			//_PositionTimer.Start();
+		}
 		_aiController.EvaluateTree();
 	}
 

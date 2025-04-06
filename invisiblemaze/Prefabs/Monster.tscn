@@ -6,9 +6,10 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
 
-[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent")]
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "_PositionTimer")]
 script = ExtResource("1_d2ygd")
 navAgent = NodePath("NavigationAgent3D")
+_PositionTimer = NodePath("ChangeTargetTimer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_khn7o")
@@ -20,3 +21,8 @@ mesh = SubResource("CapsuleMesh_khn7o")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+
+[node name="ChangeTargetTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="ChangeTargetTimer" to="." method="OnPositionTimeout"]

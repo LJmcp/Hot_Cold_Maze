@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg8x0f2oftw1x"]
+
+[ext_resource type="Texture2D" uid="uid://bvdgd6kvbd3b8" path="res://textures/hell-1690451.jpg" id="1_wao2c"]
+
+[node name="Win" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(641, 436)
+scale = Vector2(0.3652, 0.3652)
+texture = ExtResource("1_wao2c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 127.0
+offset_right = 1272.0
+offset_bottom = 182.0
+theme_override_font_sizes/font_size = 40
+text = "Welcome"
+horizontal_alignment = 1

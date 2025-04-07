@@ -10,12 +10,11 @@ height = 2.08258
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
 
-[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "_PositionTimer", "rotatingVisual")]
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "_PositionTimer")]
 script = ExtResource("1_d2ygd")
 navAgent = NodePath("NavigationAgent3D")
 _PositionTimer = NodePath("ChangeTargetTimer")
 SPEED = 4.0
-rotatingVisual = NodePath("Improved_MonsterBASIC")
 
 [node name="Monster" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_khn7o")
@@ -37,7 +36,7 @@ stream = ExtResource("2_x8qak")
 autoplay = true
 
 [node name="Improved_MonsterBASIC" parent="." instance=ExtResource("3_ch8ds")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.07454, 0)
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, -1.07454, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(-0.683889, 0.180635, -0.706871, 0.600725, 0.689241, -0.405065, 0.414035, -0.701654, -0.579876, -0.0676567, 0.577734, 0.765194)

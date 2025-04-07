@@ -88,9 +88,10 @@ public override void _PhysicsProcess(double delta)
 {
 	float currentY = rotatingVisual.Rotation.Y;
 	float smoothY = Mathf.LerpAngle(currentY, angle, (float)delta * 5);
-	rotatingVisual.Rotation = new Vector3(0, smoothY, 0);
+	rotatingVisual.Rotation = new Vector3(0, angle, 0);
+	
+	GD.Print("TEST");
 }
-
 	}
 }
 

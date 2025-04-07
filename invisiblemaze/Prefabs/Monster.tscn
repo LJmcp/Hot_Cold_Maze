@@ -10,11 +10,12 @@ height = 2.08258
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_khn7o"]
 
-[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "_PositionTimer")]
+[node name="Monster" type="CharacterBody3D" node_paths=PackedStringArray("navAgent", "_PositionTimer", "rotatingVisual")]
 script = ExtResource("1_d2ygd")
 navAgent = NodePath("NavigationAgent3D")
 _PositionTimer = NodePath("ChangeTargetTimer")
 SPEED = 4.0
+rotatingVisual = NodePath("Improved_MonsterBASIC")
 
 [node name="Monster" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_khn7o")
